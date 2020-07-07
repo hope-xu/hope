@@ -17,7 +17,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成(实体)模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.example.mysql.dto" targetProject="src">
+        <javaModelGenerator targetPackage="src.main.java.dto" targetProject="src">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -26,10 +26,10 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!-- 生成DAO接口的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.mysql.dao" targetProject="src">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="src.main.java.dao" targetProject="src">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="funders_mer_mapping" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+        <table tableName="funders_mer_mapping" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
     </context>
 </generatorConfiguration>

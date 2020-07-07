@@ -1,4 +1,4 @@
-package com.utils.logutil;
+package com.driver;
 
 import com.alibaba.fastjson.JSON;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -35,7 +35,7 @@ public class EagleEyeAOP {
     /**
      * 切到所有EagleEye修饰的方法
      */
-    @Pointcut("@annotation(com.utils.logutil.EagleEye)")
+    @Pointcut("@annotation(com.driver.EagleEye)")
     public void eagleEye(){
         System.out.println("qiedian");
     }
