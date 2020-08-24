@@ -13,8 +13,8 @@ import java.util.Vector;
 /**
  * SFTP工具类
  *
- * @author JustryDeng
- * @date 2019/3/15 12:33
+ * @author hope
+ * @date 2020/3/15 12:33
  */
 public class SftpUtil {
 
