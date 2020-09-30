@@ -17,7 +17,8 @@ public class VideoUtils {
      * OUT_PUT_PATH 转码之后视频存储路径 /app/IFDZ/clientInfo/video/output
      */
     //public static final String IN_PUT_PATH = ConfigProperties.getPropertyByKey("bp.input.path");
-    public static final String OUT_PUT_PATH = ConfigProperties.getPropertyByKey("bp.output.path");
+    //public static final String OUT_PUT_PATH = ConfigProperties.getPropertyByKey("bp.output.path");
+    public static final String OUT_PUT_PATH = "bp.output.path";
 
 
     /**
