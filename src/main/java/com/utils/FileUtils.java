@@ -6,6 +6,8 @@ import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.zip.GZIPInputStream;
 
 /**
@@ -91,4 +93,24 @@ public class FileUtils {
             }
         }
     }
+
+
+    /**
+     * 获取文件行数
+     * @param filePath
+     * @return
+     */
+    public static long getFileLineNum(String filePath) {
+        try {
+            return Files.lines(Paths.get(filePath)).count();
+        } catch (IOException e) {
+            return -1;
+        }
+    }
+
+    public static void main(String[] args) {
+        long fileLineNum = getFileLineNum("D:\\Users\\lhx\\sharedir\\gold\\upload\\20200309\\test.txt");
+        System.out.println(fileLineNum);
+    }
+
 }
