@@ -1,6 +1,7 @@
 package com.common.simpale.service;
 
 import com.common.simpale.pojo.MsgLog;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;

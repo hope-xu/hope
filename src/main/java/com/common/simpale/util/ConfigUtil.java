@@ -13,7 +13,9 @@ public class ConfigUtil {
 
     static {
         try {
-            props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
+            //props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties"));
+            //props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("application.yaml"));
+            props.load(ConfigUtil.class.getResourceAsStream("application.yaml"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
