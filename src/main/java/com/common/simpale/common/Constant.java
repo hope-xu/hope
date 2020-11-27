@@ -90,7 +90,7 @@ public class Constant {
 
         public static boolean contains(Integer code) {
             FundType[] values = FundType.values();
-            return Arrays.stream(values).filter(fundType -> fundType.getCode() == code).findAny().isPresent();
+            return Arrays.stream(values).filter(fundType -> fundType.getCode().equals(code) ).findAny().isPresent();
         }
     }
 
