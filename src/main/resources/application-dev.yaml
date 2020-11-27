@@ -1,0 +1,74 @@
+
+# Tomcat
+server:
+  port: 8081
+
+
+spring:
+  resources:
+    static-locations: classpath:/templates/,classpath:/static/
+    mvc:
+      view:
+        suffix: .html
+
+  #mysql连接信息
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/vhr?useSSL=false&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&allowMultiQueries=true
+
+  #redis配置信息
+  redis:
+    host: localhost
+    port: 6379
+    password: root
+    jedis:
+      pool:
+        max-idle: 32
+        max-wait: -1
+        min-idle: 0
+    timeout: 0
+
+  #rabbitmq配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    #publisher-confirms: true
+    publisher-returns: true
+    publisher-confirm-type: correlated
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 100
+
+  #邮件配置
+  mail:
+    host: smtp.163.com
+    username: hope-xu@foxmail.com
+    #授权码
+    password: 1245231231
+    from: hope-xu@foxmail.com
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+#show sql in console
+logging:
+  level: debug
+
+ok:
+  http:
+    connect-time: 30
+    read-timeout: 30
+    write-timeout: 30
+ #连接池中整体 空闲连接最大数量
+    max-idle-connections: 200
+#连接空闲时间最多为 300 秒
+    keep-alive-duation: 300
+
