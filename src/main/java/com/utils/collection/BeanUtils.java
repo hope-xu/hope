@@ -1,6 +1,8 @@
 package com.utils.collection;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * @author Hope
@@ -76,6 +78,7 @@ public class BeanUtils {
 
     /**
      * 两个为一组，传进来的参数转换成map
+     *
      * @param pairs
      * @return
      */
@@ -92,5 +95,62 @@ public class BeanUtils {
         return parameters;
     }
 
+
+    /**
+     * 下划线转驼峰法
+     *
+     * @param line       源字符串
+     * @param smallCamel 大小驼峰，是否为小驼峰
+     * @return 转换后的字符串
+     */
+    public static String underLine2Camel(String line, boolean smallCamel) {
+        if (line == null || "".equals(line)) {
+            return "";
+        }
+        StringBuffer buffer = new StringBuffer();
+        Pattern pattern = Pattern.compile("([A-Za-z\\d]+)(_)?");
+        Matcher matcher = pattern.matcher(line);
+        while (matcher.find()) {
+            String word = matcher.group();
+            buffer.append(smallCamel && matcher.start() == 0 ? Character.toLowerCase(word.charAt(0)) : Character.toUpperCase(word.charAt(0)));
+            int indexOf = word.lastIndexOf("_");
+            if (indexOf > 0) {
+                buffer.append(word.substring(1, indexOf).toLowerCase());
+            } else {
+                buffer.append(word.substring(1).toLowerCase());
+            }
+        }
+        return buffer.toString();
+    }
+
+
+    /**
+     * 驼峰转下划线
+     *
+     * @param line
+     * @return
+     */
+    public static String camel2UnderLine(String line) {
+        if (line == null || "".equals(line)) {
+            return "";
+        }
+        line = String.valueOf(line.charAt(0)).toUpperCase().concat(line.substring(1));
+        StringBuffer buffer = new StringBuffer();
+        Pattern pattern = Pattern.compile("[A-Z]([a-z\\d]+)?");
+        Matcher matcher = pattern.matcher(line);
+        while (matcher.find()) {
+            String word = matcher.group();
+            buffer.append(word.toUpperCase());
+            buffer.append(matcher.end() == line.length() ? "" : "_");
+        }
+        return buffer.toString();
+    }
+
+
+    public static void main(String[] args) {
+        String str = "nameSex";
+        String s = camel2UnderLine(str);
+        System.out.println(s);
+    }
 
 }
