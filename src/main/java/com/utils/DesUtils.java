@@ -22,9 +22,9 @@ public class DesUtils {
     /**
      * 解密
      *
-     * @param value
-     * @param key
-     * @return
+     * @param value 密文
+     * @param key 密钥
+     * @return 明文
      * @throws Exception
      */
     public static String decrypt3DES(String value, String key) throws Exception {
@@ -39,6 +39,13 @@ public class DesUtils {
     }
 
 
+    /**
+     * 加密
+     * @param value 明文
+     * @param key 密钥
+     * @return 密文
+     * @throws Exception
+     */
     public static String encrypt3DES(String value, String key) throws Exception {
         if (StringUtils.isEmpty(value)) {
             return "";
